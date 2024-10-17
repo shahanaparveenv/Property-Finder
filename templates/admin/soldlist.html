@@ -1,0 +1,51 @@
+{% extends 'admin/admin_dashboard.html' %}
+{% block content %}
+<h5>Sold Properties</h5>
+
+<table class="table  ">
+    <thead>
+    <tr>
+        <th></th>
+        <th scope="col">Property Name</th>
+
+        <th scope="col">Price</th>
+        <th scope="col">Agent ID</th>
+        <th scope="col">Tenant ID</th>
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+    {% for i in data %}
+    <tr>
+
+        <td><img src="{{i.property.image.url}}" alt="..." style="width:16rem; height:12rem; mt-4;  -webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;">
+        </td>
+        <td>{{i.property.name}}</td>
+
+
+        <td>Rs:{{i.property.price}}</td>
+
+        <td>ID{{i.property.agent.id}}</td>
+        <td>ID{{i.user.id}}</td>
+
+
+        <!--            <td>-->
+        <!--                <button type='submit'>Buy Now</button>-->
+        <!--            </td>-->
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,142 @@
+<!-- /*
+* Template Name: Property
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="shortcut icon" href=" {% static 'favicon.png' %} "/>
+    <meta name="description" content=""/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href=" {% static 'fonts/icomoon/style.css' %} "/>
+    <link rel="stylesheet" href=" {% static 'fonts/flaticon/font/flaticon.css' %} "/>
+
+    <link rel="stylesheet" href=" {% static 'css/tiny-slider.css' %} "/>
+    <link rel="stylesheet" href=" {% static 'css/aos.css' %} "/>
+    <link rel="stylesheet" href=" {% static 'css/style.css' %} "/>
+
+    <title>
+        Capstone Property Finder
+    </title>
+</head>
+<body>
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container ">
+        <div class="menu-bg-wrap mb-5 " style=" background:rgba(0,0,0,0.5);">
+            <div class="site-navigation">
+                <a href=" {% static 'index.html' %} " class="logo m-0 float-start">Capstone</a>
+
+                <ul
+                        class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
+                >
+                     <li class="active"><a href='home'>Home</a></li>
+
+                    <li><a href='home'>Services</a></li>
+                    <li><a href='home'>About</a></li>
+                    <li><a href='home'>Contact Us</a></li>
+                </ul>
+
+                <a
+                        href="#"
+                        class="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none"
+                        data-toggle="collapse"
+                        data-target="#main-navbar"
+                >
+                    <span></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class=" mt-5"; style="margin-top:100px">
+    <div class="row  pt-5" style="margin-left:20px; margin-top:20px">
+        {% for i in data %}
+        <div class="col-md-3 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{i.image.url}}" class="card-img-top" alt="..."
+                     style="width:18rem; height:12rem; image:cover ">
+
+                <div class="card-body">
+                    <div style="text-align: center;
+vertical-align: middle;"><span style="color:#1a0f3b;  font-size: xx-large">₹ {{i.price}}</span>
+                        <br>
+
+                        <span style="color:#1a0f3b; font-size: large">{{i.name}}</span>
+
+                        <hr>
+                    </div>
+                    <div>
+
+                        <span class="d-block mb-2 text-black-50"
+                        >{{i.details}}</span
+                        >
+                        <span class="city d-block mb-3"
+                              style="color:#1a0f3b; font-size:medium">Place : {{i.place}}</span>
+
+                        <div class="specs d-flex mb-4">
+                        <span class="d-block d-flex align-items-center me-3">
+                          <span class="icon-bed me-2"></span>
+                          <span class="caption">{{i.bed_no}} bed</span>
+                        </span>
+                            <span class="d-block d-flex align-items-center">
+                          <span class="icon-bath me-2"></span>
+                          <span class="caption">{{i.bath_no}} bath</span>
+                        </span>
+                        </div>
+                        <a href='login_view' class="btn btn-primary"
+                           style="width:16rem; background-color:#5D3FD3">View Property</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+<!-- /.site-footer -->
+
+<!-- Preloader -->
+<div id="overlayer"></div>
+<div class="loader">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<script src=" {% static 'js/bootstrap.bundle.min.js' %} "></script>
+<script src=" {% static 'js/tiny-slider.js' %} "></script>
+<script src=" {% static 'js/aos.js' %} "></script>
+<script src=" {% static 'js/navbar.js' %} "></script>
+<script src=" {% static 'js/counter.js' %} "></script>
+<script src=" {% static 'js/custom.js' %} "></script>
+</body>
+</html>
+

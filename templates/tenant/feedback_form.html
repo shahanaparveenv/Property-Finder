@@ -1,0 +1,17 @@
+{% extends 'tenant/tenant_dashboard.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+		      	<h3 class="mb-4 text-center">Submit your feedback </h3>
+		      	<form  method='post'>
+					{% csrf_token %}
+		      		{{form|crispy}}
+	           <div class="form-group">
+	            	<button type='submit' class="form-control btn btn-primary submit px-3">Submit</button>
+	            </div>
+
+	          </form>
+
+
+{% endblock %}

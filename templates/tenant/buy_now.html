@@ -1,0 +1,59 @@
+{% extends 'tenant/tenant_dashboard.html' %}
+{% block content %}
+<h5>Buy Now</h5>
+<form method="POST">
+    {% csrf_token %}
+    <table class="table  ">
+        <thead>
+        <tr>
+            <th scope="col">Sl no.</th>
+            <th></th>
+            <th scope="col">Product Name</th>
+             <th scope="col">Address</th>
+            <th scope="col">Price</th>
+
+
+        </tr>
+        </thead>
+
+
+        <tbody>
+
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td><img src="{{property.image.url}}" alt="..." style="width:16rem; height:12rem; mt-4">
+            </td>
+            <td readonly>{{property.name}}</td>
+            <td>
+                <label class=" form-control-label">Address</label>
+                <input type="text" name="address">
+                <br>
+
+                <label class=" form-control-label">Phone No: </label>
+                <input name="phone">
+                <br>
+                <label class=" form-control-label">Postal Code</label>
+                <input name="post">
+
+            </td>
+
+            <td readonly >{{property.price}}</td>
+
+            <td>
+                <button type='submit'>Buy Now</button>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+</form>
+
+
+
+{% endblock %}
+
+
+
+
+

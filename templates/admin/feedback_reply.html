@@ -1,0 +1,30 @@
+{% extends 'admin/admin_dashboard.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+
+		      	<h3 class="mb-4 text-center">Feedback Response</h3>
+		      	<form  method='post'>
+					{% csrf_token %}
+		      		<div class="form-group">
+                    <label class=" form-control-label">Date</label>
+                    <input  required  class="form-control" readonly value="{{feedback.date}}">
+
+                	</div>
+					<div class="form-group">
+					<label class=" form-control-label">Tenant Feedback</label>
+                    <input  required  class="form-control" readonly value="{{feedback.feedback}}">
+					</div>
+
+				<div class="form-group">
+                    <label  class=" form-control-label">Reply</label>
+                    <textarea cols="3" rows="7" required  class="form-control" name="reply">
+                </textarea>
+                </div>
+	           <div class="form-group">
+	            	<button type='submit' class="form-control btn btn-primary submit px-3">Reply</button>
+	            </div>
+
+	          </form>
+
+{% endblock %}qaswq

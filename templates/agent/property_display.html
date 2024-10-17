@@ -1,0 +1,54 @@
+{% extends 'agent/agentdashboard.html' %}
+{% block content %}
+{% for message in messages %}
+<div class="alert alert-primary" role="alert">
+    {{message}}
+</div>
+{% endfor %}
+<div class=" mt-5">
+    <div class="row">
+        {% for i in data %}
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{i.image.url}}" class="card-img-top" alt="..."
+                     style="width:18rem; height:12rem; image:cover ">
+
+                <div class="card-body">
+                      <div style="text-align: center;
+vertical-align: middle;"><span  style="color:#1a0f3b;  font-size: xx-large">₹ {{i.price}}</span>
+                          <br>
+
+                    <span  style="color:#1a0f3b; font-size: large">{{i.name}}</span>
+
+                          <hr></div>
+                    <div>
+
+                        <span class="d-block mb-2 text-black-50"
+                        >{{i.details}}</span
+                        >
+                        <span class="city d-block mb-3" style="color:#1a0f3b; font-size:medium">Place : {{i.place}}</span>
+
+                        <div class="specs d-flex mb-4">
+                        <span class="d-block d-flex align-items-center me-3">
+                          <span class="icon-bed me-2"></span>
+                          <span class="caption">{{i.bed_no}} bed</span>
+                        </span>
+                            <span class="d-block d-flex align-items-center">
+                          <span class="icon-bath me-2"></span>
+                          <span class="caption">{{i.bath_no}} bath</span>
+                        </span>
+                        </div>
+                        <a href="{% url 'property_delete' i.id %}" class="btn btn-primary"
+                           style="width:16rem; background-color:#5D3FD3">Delete</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

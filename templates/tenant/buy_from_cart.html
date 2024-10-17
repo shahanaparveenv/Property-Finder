@@ -1,0 +1,80 @@
+{% extends 'tenant/tenant_dashboard.html' %}
+{% block content %}
+
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+    gap: 20px; /* Adds space between the columns */
+    padding: 20px;
+}
+
+.grid-item {
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+    </style>
+</head>
+<body>
+{% for message in messages %}
+ <div class="alert alert-primary" role="alert">
+{{message}}
+ </div>
+{% endfor %}
+<h5>Buy Now</h5>
+<div class="grid-container">
+        <div class="grid-item item1" style="background:none">
+            <img src="{{item.image.url}}" alt="Property Image" style="width:34rem; height:24rem; mt-4">
+
+            <p style="font-size:x-large; color:#1a0f3b; margin-top:10px;">Rs.{{item.price}}</p>
+             <h5 style="font-size:medium; color:#1a0f3b; margin-top:5px;" >{{item.name}}</h5>
+        </div>
+        <div class="grid-item item2" style="background:none">
+           <form method="POST">
+    {% csrf_token %}
+
+    <div>
+        <label for="address">Current Address:</label>
+         <br>
+        <input type="text" name="address" id="address" required style="width:24rem">
+    </div>
+ <br>
+    <div>
+        <label for="phone">Phone Number:</label>
+         <br>
+        <input &nbsp
+               type="text" name="phone" id="phone" required style="width:24rem">
+    </div>
+ <br>
+    <div>
+        <label for="post">Postal Code:</label>
+         <br>
+        <input type="text" name="post" id="post" required style="width:24rem">
+    </div>
+                <br>
+                <br>
+                <br>
+
+    <button type="submit" class="btn btn-success" style="width:24rem">Buy Now</button>
+</form>
+        </div>
+</div>
+        </div>
+    </div>
+
+
+</body>
+{% endblock %}
+
+
+
+
+

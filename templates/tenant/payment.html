@@ -1,0 +1,191 @@
+
+
+
+<head>
+	  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+
+    padding: 40px 0px;
+}
+
+.card {
+    max-width: 600px;
+    margin: auto;
+    color: black;
+    margin-left:70px;
+    border-radius: 20 px;
+}
+
+p {
+    margin: 0px;
+}
+
+.container .h8 {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.btn.btn-primary {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+   border-radius: 12px;
+
+}
+
+
+.btn.btn.btn-primary:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.btn.btn-primary:hover .fas.fa-arrow-right {
+    transform: translate(15px);
+    transition: transform 0.2s ease-in;
+}
+
+.form-control {
+    color: white;
+    background-color: #223C60;
+    border: 2px solid transparent;
+    height: 60px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+.form-control:focus {
+    color: white;
+    background-color: #0C4160;
+    border: 2px solid #2d4dda;
+    box-shadow: none;
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+::placeholder {
+    font-size: 14px;
+    font-weight: 600;
+}
+	</style>
+</head>
+<body>
+<form class="card-details  ml-4 " method="POST">
+				 {% csrf_token %}
+<div style="width:550px">
+        <div class="card px-4">
+            <p class="py-3" style="font-size:xx-large">Payment Details</p>
+            <div class="row gx-3">
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1 " style="margin-top:10px; font-size:medium;">Person Name</p>
+						<p class="form-control" style="padding-top:17px; margin-top:5px" type="text" placeholder="Name">{{user.name}}</p>
+                    </div>
+                </div>
+                <br>
+
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1" style="font-size:medium;">Card Number</p>
+                        <input class="form-control mb-3" style="width:100%; margin-top:5px;" required type="text" placeholder="1234 5678 435678" name="cardnumber">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1"style="font-size:medium; margin-top:5px;">Expiry</p>
+                        <input class="form-control mb-3" style="width:100%; margin-top:5px;" required type="text" placeholder="MM/YYYY" name="date">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1" style="font-size:medium;">CVV/CVC</p>
+                        <input class="form-control mb-3 pt-2 " style="width:100%; margin-top:5px" required type="password" placeholder="***" name="cvv">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary mb-3" style="margin-top:10px;font-size:large;font-weight:bold;color:#C70039;  ">
+                        <span class="ps-3" style="margin-left:35%;">Pay Rs.{{buynow_id.totalprice}}</span>
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+<!--	<form class="card-details  ml-4 " method="POST">-->
+<!--						 {% csrf_token %}-->
+<!--<div class="container-fluid">-->
+<!--	<div class="row d-flex justify-content-center">-->
+<!--		<div class="col-sm-12">-->
+<!--			<div class="card mx-auto">-->
+<!--				<br>-->
+<!--				<br>-->
+
+<!--						<div class="form-group row d-flex ml-2">-->
+<!--							<div>-->
+<!--                            <p class="text-warning mb-0">Cardholder's Name</p> <p type="text" name="name" placeholder="Name" size="17" class="border border-dark">{{user.name}}</p>-->
+<!--                       </div>-->
+<!--						<div>-->
+<!--                        <p class=" px-5 text-danger fw-bold">Total amount : {{buynow_id.totalprice}}</p>-->
+<!--</div>-->
+<!--						</div>-->
+
+<!--						<div class="form-group mb-0">-->
+<!--								<p class="text-warning mb-0">Card Number</p>-->
+<!--                          		<input type="text" name="cardnumber" placeholder="1234 5678 9012 3457" size="17" id="cno" minlength="19" maxlength="19">-->
+
+<!--                        </div>-->
+
+<!--<br>-->
+<!--                        <div class="form-group pt-2">-->
+<!--                        	<div class="row d-flex">-->
+<!--                        		<div class="col-sm-4">-->
+<!--                        			<p class="text-warning mb-0">Expiration</p>-->
+<!--                        			<input type="text" name="date" placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7">-->
+<!--                        		</div>-->
+<!--                        		<div class="col-sm-3">-->
+<!--                        			<p class="text-warning mb-0">Cvv</p>-->
+<!--                        			<input type="password" name="cvv" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3">-->
+<!--                        		</div>-->
+<!--								<br>-->
+<!--                        		<div class="col-sm-5 ">-->
+<!--                        			<button type="submit" class="btn btn-primary">Pay Now</button>-->
+<!--                        		</div>-->
+<!--                        	</div>-->
+<!--                        </div>-->
+
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
+<!--</div>-->
+<!--			</form>-->

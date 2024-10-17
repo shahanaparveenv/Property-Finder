@@ -1,0 +1,45 @@
+{% extends 'tenant/tenant_dashboard.html' %}
+{% block content %}
+<h5>Ordered Products</h5>
+
+<table class="table  ">
+    <thead>
+    <tr>
+        <th scope="col">Sl no.</th>
+        <th></th>
+        <th scope="col">Product Name</th>
+         <th scope="col">Place</th>
+
+        <th scope="col">Price</th>
+
+    </tr>
+    </thead>
+
+
+    <tbody>
+    {% for i in data %}
+    <tr>
+
+        <th scope="row">{{forloop.counter}}</th>
+        <td><img src="{{i.property.image.url}}" alt="..." style="width:16rem; height:12rem; mt-4  -webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;">
+        </td>
+        <td>{{i.property.name}}</td>
+        <td>{{i.property.place}}</td>
+
+        <td>{{i.property.price}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+
+{% endblock %}
+
+
+
+
+

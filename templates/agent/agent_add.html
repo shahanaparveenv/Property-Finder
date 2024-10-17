@@ -1,0 +1,55 @@
+<!doctype html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href=" {% static 'login/css/style.css' %} ">
+
+	</head>
+	<body  style="background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;background-image: url( {% static 'login/images/backgroundimage.jpg' %} );">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h3 class="heading-section">Agent Register</h3>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div >
+					<div class="login-wrap p-0">
+<!--		      	<h3 class="mb-4 text-center">Have an account?</h3>-->
+		      	<form  method='post'>
+					{% csrf_token %}
+		      		{{form1|crispy}}
+					{{form2|crispy}}
+					<button type="submit" class="btn btn-success mx-auto d-block ">Submit</button>
+<!--	           n-->
+	          </form>
+<!--	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>-->
+<!--	          <div class="social d-flex text-center">-->
+<!--	          	<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>-->
+<!--	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>-->
+<!--	          </div>-->
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src=" {% static 'login/js/jquery.min.js' %} "></script>
+  <script src=" {% static 'login/js/popper.js' %} "></script>
+  <script src=" {% static 'login/js/bootstrap.min.js' %} "></script>
+  <script src=" {% static 'login/js/main.js' %} "></script>
+
+	</body>
+</html>
+

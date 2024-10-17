@@ -1,0 +1,40 @@
+{% extends 'admin/admin_dashboard.html' %}
+{% block content %}
+<table class="table table-muted table-striped ">
+  <h4 style="text-align:center;">Tenant List</h4>
+  <br>
+  <thead>
+    <tr>
+      <th scope="col">Sl no.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Contact no</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.contact_no}}</td>
+      <td>{{i.email}}</td>
+
+      <td>
+        <form action="{% url 'delete' i.id %}" method="POST" >
+          {% csrf_token %}
+          <button type = "submit" class="btn btn-success">Delete</button>
+        </form>
+      </td>
+    </tr>
+   {% endfor %}
+     </tbody>
+
+</table>
+{% endblock %}
+
+
+
+
+

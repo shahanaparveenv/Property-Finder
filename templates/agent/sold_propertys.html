@@ -1,0 +1,51 @@
+{% extends 'agent/agentdashboard.html' %}
+{% block content %}
+<h5>Sold Properties</h5>
+
+    <table class="table  ">
+        <thead>
+        <tr>
+            <th scope="col">Sl no.</th>
+            <th></th>
+            <th scope="col">Product Name</th>
+
+            <th scope="col">Price</th>
+
+
+        </tr>
+        </thead>
+
+
+        <tbody>
+{% for i in data %}
+        <tr>
+
+            <th scope="row">{{forloop.counter}}</th>
+            <td><img src="{{i.image.url}}" alt="..." style="width:16rem; height:12rem; mt-4   -webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;">
+            </td>
+            <td >{{i.name}}</td>
+
+
+            <td  >{{i.price}}</td>
+
+
+<!--            <td>-->
+<!--                <button type='submit'>Buy Now</button>-->
+<!--            </td>-->
+        </tr>
+{% endfor %}
+        </tbody>
+
+    </table>
+
+
+
+
+{% endblock %}
+
+
+
+
+
